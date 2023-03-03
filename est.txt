@@ -1,0 +1,10 @@
+raamat
+auto
+maja
+õun
+piim
+kool
+puu
+linn
+laud
+päike
