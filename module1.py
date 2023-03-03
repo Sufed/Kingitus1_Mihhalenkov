@@ -1,7 +1,7 @@
 import random
 import os
 
-# функция для чтения слов из файла
+# С„СѓРЅРєС†РёСЏ РґР»СЏ С‡С‚РµРЅРёСЏ СЃР»РѕРІ РёР· С„Р°Р№Р»Р°
 def loe_failist(filename):
     fail=open(filename,'r',encoding="utf-8-sig")
     mas=[] 
@@ -13,7 +13,7 @@ def loe_failist(filename):
 est_words = loe_failist('est.txt')
 rus_words = loe_failist('rus.txt')
 
-# функция для записи слов в файл
+# С„СѓРЅРєС†РёСЏ РґР»СЏ Р·Р°РїРёСЃРё СЃР»РѕРІ РІ С„Р°Р№Р»
 def write_file(words, filename):
     f=open(filename,'w',encoding="utf-8-sig")
     for line in words:
@@ -21,7 +21,7 @@ def write_file(words, filename):
     f.close()
 
 
-# функция для перевода слов с эстонского на русский
+# С„СѓРЅРєС†РёСЏ РґР»СЏ РїРµСЂРµРІРѕРґР° СЃР»РѕРІ СЃ СЌСЃС‚РѕРЅСЃРєРѕРіРѕ РЅР° СЂСѓСЃСЃРєРёР№
 def est_to_rus(word, est_words, rus_words):
     if word in est_words:
         index = est_words.index(word)
@@ -29,7 +29,7 @@ def est_to_rus(word, est_words, rus_words):
     else:
         return None
 
-# функция для перевода слов с русского на эстонский
+# С„СѓРЅРєС†РёСЏ РґР»СЏ РїРµСЂРµРІРѕРґР° СЃР»РѕРІ СЃ СЂСѓСЃСЃРєРѕРіРѕ РЅР° СЌСЃС‚РѕРЅСЃРєРёР№
 def rus_to_est(word, est_words, rus_words):
     if word in rus_words:
         index = rus_words.index(word)
@@ -37,24 +37,24 @@ def rus_to_est(word, est_words, rus_words):
     else:
         return None
 
-# функция для добавления нового слова в словарь
+# С„СѓРЅРєС†РёСЏ РґР»СЏ РґРѕР±Р°РІР»РµРЅРёСЏ РЅРѕРІРѕРіРѕ СЃР»РѕРІР° РІ СЃР»РѕРІР°СЂСЊ
 def add_word(word, est_words, rus_words):
     if word not in est_words:
         est_words.append(word)
-        rus_word = input('Введите перевод слова на русский: ')
+        rus_word = input('Р’РІРµРґРёС‚Рµ РїРµСЂРµРІРѕРґ СЃР»РѕРІР° РЅР° СЂСѓСЃСЃРєРёР№: ')
         rus_words.append(rus_word)
         write_file(est_words, 'est.txt')
         write_file(rus_words, 'rus.txt')
 
-# функция для исправления ошибки в словаре
+# С„СѓРЅРєС†РёСЏ РґР»СЏ РёСЃРїСЂР°РІР»РµРЅРёСЏ РѕС€РёР±РєРё РІ СЃР»РѕРІР°СЂРµ
 def fix_word(word, est_words, rus_words):
     if word in est_words:
         index = est_words.index(word)
-        new_rus_word = input('Введите новый перевод слова на русский: ')
+        new_rus_word = input('Р’РІРµРґРёС‚Рµ РЅРѕРІС‹Р№ РїРµСЂРµРІРѕРґ СЃР»РѕРІР° РЅР° СЂСѓСЃСЃРєРёР№: ')
         rus_words[index] = new_rus_word
         write_file(rus_words, 'rus.txt')
     elif word in rus_words:
         index = rus_words.index(word)
-        new_est_word = input('Введите новый перевод слова на эстонский: ')
+        new_est_word = input('Р’РІРµРґРёС‚Рµ РЅРѕРІС‹Р№ РїРµСЂРµРІРѕРґ СЃР»РѕРІР° РЅР° СЌСЃС‚РѕРЅСЃРєРёР№: ')
         est_words[index] = new_est_word
         write_file(est_words, 'est.txt')
