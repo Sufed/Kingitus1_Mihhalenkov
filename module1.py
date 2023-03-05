@@ -58,3 +58,18 @@ def fix_word(word, est_words, rus_words):
         new_est_word = input('Введите новый перевод слова на эстонский: ')
         est_words[index] = new_est_word
         write_file(est_words, 'est.txt')
+        
+# Функция для проверки знания слов
+def test_dict():
+    total_words = len(rus_dict)
+    correct_answers = 0
+    for i in range(total_words):
+        word = random.choice(list(rus_dict.keys()))
+        print("Введите перевод слова", word, ":")
+        user_translation = input()
+        if user_translation == rus_dict[word]:
+            print("Правильно!")
+            correct_answers += 1
+        else:
+            print("Неправильно. Правильный ответ:", rus_dict[word])
+    print("Тестирование завершено. Вы ответили правильно на", correct_answers, "из", total_words, "слов. Результат:", round(correct_answers/total_words*100, 2), "%")
